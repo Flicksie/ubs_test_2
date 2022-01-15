@@ -1,5 +1,5 @@
 :root{
-    --theme-primary: #01949a;
+    --theme-main: #01949a;
     --theme-accent: #db4f48;
     
     --theme-bg-1: #004369; /* normal */
@@ -17,6 +17,6 @@
 
     --danger: #db1f48;
     --success: #44d273;
-    --info: #47ade4;
+    --info: #1b98e2;
 
 }
