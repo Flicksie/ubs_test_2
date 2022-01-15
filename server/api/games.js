@@ -1,8 +1,7 @@
 const express = require("express");
 const axios = require("axios");
 
-const BASE_URL = "https://api.igdb.com/v4"
-
+const BASE_URL = "https://api.igdb.com/v4";
 
 /*
 f name, platforms;
@@ -14,13 +13,12 @@ w platforms.platform_family = 1;
 
 const router = express.Router();
 
+router.get("/", (req, res) => {
+  const props = res.locals.igdbProps;
 
-router.get('/', (req,res) => {
-    const props = res.locals.igdbProps;
-
-    axios.post(
-        `${BASE_URL}/games`,
-        `
+  axios.post(
+    `${BASE_URL}/games`,
+    `
             f 
                 name,
                 platforms,
@@ -42,29 +40,28 @@ router.get('/', (req,res) => {
             s release_dates.date asc;
             l 50;
         `,
-        //release_dates.date < 821662727 & // pre-90s
-        {        
-            headers: {
-                "Client-ID": props.clientID,
-                "Content-Type": "text/plain",
-                "Authorization": `Bearer ${props.authPayload.access_token}`
-        }
-    }).then(response=> {
-        res.json(response.data)
-    })
-    .catch(err=>{
-        res.status(500).json({status:"ERROR", info: "Unable to fetch data."})
-    })
+    // release_dates.date < 821662727 & // pre-90s
+    {
+      headers: {
+        "Client-ID": props.clientID,
+        "Content-Type": "text/plain",
+        Authorization: `Bearer ${props.authPayload.access_token}`,
+      },
+    },
+  ).then((response) => {
+    res.json(response.data);
+  })
+    .catch(() => {
+      res.status(500).json({ status: "ERROR", info: "Unable to fetch data." });
+    });
+});
 
-})
+router.get("/:id", (req, res) => {
+  const props = res.locals.igdbProps;
 
-
-router.get('/:id', (req,res) => {
-    const props = res.locals.igdbProps;
-
-    axios.post(
-        `${BASE_URL}/games`,
-        `
+  axios.post(
+    `${BASE_URL}/games`,
+    `
             f 
                 name,
                 platforms,
@@ -86,27 +83,20 @@ router.get('/:id', (req,res) => {
             w  
                 id = ${req.params.id};
         `,
-        //release_dates.date < 821662727 & // pre-90s
-        {        
-            headers: {
-                "Client-ID": props.clientID,
-                "Content-Type": "text/plain",
-                "Authorization": `Bearer ${props.authPayload.access_token}`
-        }
-    }).then(response=> {
-        res.json(response.data)
-    })
-    .catch(err=>{
-        res.status(500).json({status:"ERROR", info: "Unable to fetch data."})
-    })
-
-})
-
-
-
-
-
-
+    // release_dates.date < 821662727 & // pre-90s
+    {
+      headers: {
+        "Client-ID": props.clientID,
+        "Content-Type": "text/plain",
+        Authorization: `Bearer ${props.authPayload.access_token}`,
+      },
+    },
+  ).then((response) => {
+    res.json(response.data);
+  })
+    .catch(() => {
+      res.status(500).json({ status: "ERROR", info: "Unable to fetch data." });
+    });
+});
 
 module.exports = router;
-

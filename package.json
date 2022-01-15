@@ -23,6 +23,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint -c .eslintrc.json \"**/*.{js,jsx}\"",
     "lint:js:fix": "eslint -c .eslintrc.json --ext .js src/ --fix && echo \"\u001b[1m\u001b[32mOK\u001b[39m\u001b[22m\" || echo \"\u001b[1m\u001b[31mNot OK\u001b[39m\u001b[22m\"",
+    "lint:server:fix": "eslint -c .eslintrc.json --ext .js server/ --fix && echo \"\u001b[1m\u001b[32mOK\u001b[39m\u001b[22m\" || echo \"\u001b[1m\u001b[31mNot OK\u001b[39m\u001b[22m\"",
     "lint:jsx:fix": "eslint -c .eslintrc.json --ext .jsx src/ --fix && echo \"\u001b[1m\u001b[32mOK\u001b[39m\u001b[22m\" || echo \"\u001b[1m\u001b[31mNot OK\u001b[39m\u001b[22m\""
   },
   "eslintConfig": {

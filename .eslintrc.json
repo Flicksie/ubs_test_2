@@ -29,6 +29,8 @@
         ],
         "no-param-reassign": "off",
         "global-require": "off",
+        "import/extensions":"off",
+        "import/no-unresolved":"off",
         "import/no-dynamic-require": "off",
         "linebreak-style": "off",
         "disable-next-line": "off",
