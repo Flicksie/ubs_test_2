@@ -24,14 +24,14 @@ function GamesList (){
     
     return (
         <div className="gamesListContainer">
-            <h2>Games</h2>
+            <h2>Games Released in 1994</h2>
             <ul className="gamesList">
                 { 
                     loaded 
                     ?
                         games.map(game=> <li className="gamesListEntry" key={game.id}><GameEntry metadata={game} ></GameEntry></li> )
                     :
-                        <p> Loading... </p>
+                        [...Array(10).keys()].map(dummy=> <li className="gamesListEntry isDummy"><GameEntry metadata={({dummy:true})} ></GameEntry></li>)
                 }
             </ul>
         </div>
