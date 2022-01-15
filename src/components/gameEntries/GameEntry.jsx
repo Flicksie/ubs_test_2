@@ -1,8 +1,9 @@
 import "./gameEntry.css";
+import "../buttons/buttons.css";
 
 function gameEntry (props){
 
-    const {id, dummy, name, cover, release_dates} = props.metadata;
+    const {dummy, name, cover, release_dates} = props.metadata || {};
     
     if (dummy){
         return (
@@ -19,8 +20,8 @@ function gameEntry (props){
     
     const firstRelease = release_dates?.sort( (a,b) => a.date - b.date )[0] || [];
     const release94 = release_dates
-        .sort( (a,b) => a.date - b.date )
-        .find(rel=> new Date(rel.date * 1000).getFullYear() === 1994);
+        ?.sort( (a,b) => a.date - b.date )
+        ?.find(rel=> new Date(rel.date * 1000).getFullYear() === 1994);
 
 
     const parseDate = (date) => date 
@@ -38,12 +39,13 @@ function gameEntry (props){
                 <span className="infoTitle" > {name} </span>
                 <span className="infoPlatformName"> { release94?.platform?.name || "N/A" } </span>             
                 <br/>
-                <span className="infoReleaseDate"> {parseDate(release94.date)} {
-                    release94.date === firstRelease.date 
+                <span className="infoReleaseDate"> {parseDate(release94?.date)} {
+                    release94?.date === firstRelease?.date 
                         && <span className="originalRel">( Original Release: {parseDate(firstRelease.date)})</span>
                 } </span>
             </div>
-            <button onClick={0} > Info </button>
+            <button className="info "  > Info </button>
+            <button className="secondary outline"  > Data </button>
         </>
 
     );
