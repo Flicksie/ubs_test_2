@@ -1,7 +1,7 @@
 import './theme.css';
 import './App.css';
 
-import GamesList from './components/gameEntries/GamesList'
+import GamesList from './components/gamesList/GamesList'
 
 function App() {
   return (
