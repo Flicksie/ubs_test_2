@@ -1,0 +1,22 @@
+:root{
+    --theme-primary: #01949a;
+    --theme-accent: #db4f48;
+    
+    --theme-bg-1: #004369; /* normal */
+    --theme-bg-2: #042b4a; /* darker */
+    --theme-bg-3: #04598c; /* lighter */
+    --theme-bg-4: #182841; /* darkest */
+
+    --theme-bg-inv: #e5ddc8; /* contrast */
+    
+    --theme-text-1: #e5ddc8; /* normal */
+    --theme-text-2: #f3f3eb; /* strong  */
+    --theme-text-3: #9bacc6; /* dim */
+    
+    --theme-text-inv: #004369; /* contrast */
+
+    --danger: #db1f48;
+    --success: #44d273;
+    --info: #47ade4;
+
+}
