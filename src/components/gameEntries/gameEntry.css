@@ -1,21 +1,68 @@
 .coverArt{
     background-size: cover;
-    height:150px;
-    width:150px;
+    height:120px;
+    width:120px;
+    flex: 0 0 auto;
 }
+
+
 
 .infoBox{
     margin: 12px;
+    width: 100%;
+}
+.infoTitle{
+    font-size: 18pt;
+    list-style: 1;
 }
 
-.platformInfo{
-    display: flex;
-    align-items: center;
+
+
+.infoReleaseDate{
+    font-size: 14pt;
+    opacity: .7;
+
 }
-.platformName{
+
+.infoPlatformName{
     font-size: 12pt;
+    opacity: .6;
 }
-.platformLogo{
-    height: 32px;
-    margin: 12px;
+.originalRel{
+    font-size: 12pt;
+    opacity: .5;
+}
+
+
+.coverArt.isDummy{
+    background-color: #112A;
+    display: block;
+    animation: blink 1s forwards infinite;
+}
+.infoTitle.isDummy,.infoOther.isDummy{    
+    background-image: linear-gradient( 90deg, #112A, #1125 );
+    display: inline-block;
+    animation: swipe 1s forwards infinite;
+}
+
+.infoTitle.isDummy{
+    width: 72%;
+    height: 18pt;
+}
+
+.infoOther.isDummy{
+    width: 60%;
+    height: 14pt;
+    opacity: .8;
+}
+
+@keyframes blink{
+    0% {opacity: .2;}
+    50% {opacity: 1;}
+    100% {opacity: .2;}
+}
+@keyframes swipe{
+    0% {background-position-x: 0;}
+    50% {background-position-x: -400px;}
+    100% {background-position-x: 0;}
 }

@@ -2,26 +2,48 @@ import "./gameEntry.css";
 
 function gameEntry (props){
 
-    const {name, cover, release_dates} = props.metadata;
-
-    const firstRelease = release_dates?.sort( (a,b) => a.date - b.date )[0] || [];
-    const company = props.involved_companies?.[0].company?.name || "N/A";
+    const {id, dummy, name, cover, release_dates} = props.metadata;
     
+    if (dummy){
+        return (
+            <>
+                <div className="coverArt isDummy"></div>
+                <div className="infoBox">
+                    <div className="infoTitle isDummy" ></div>
+                    <br/>
+                    <div className="infoOther isDummy" ></div>
+                </div>
+            </>
+        )
+    }
+    
+    const firstRelease = release_dates?.sort( (a,b) => a.date - b.date )[0] || [];
+    const release94 = release_dates
+        .sort( (a,b) => a.date - b.date )
+        .find(rel=> new Date(rel.date * 1000).getFullYear() === 1994);
+
+
+    const parseDate = (date) => date 
+        ? new Date(date*1000).toLocaleString( 'en', {year: "numeric", month: "long", day: "numeric"} )
+        : "N/A"
+
+
     return (
         <>
             <div className="coverArt"  style={{ 
-                backgroundImage: `url("${cover?.url?.replace('t_thumb','t_logo_med')}")` 
+                backgroundImage: `url("${cover?.url?.replace('t_thumb','t_cover_big')}")` 
                 }}
             ></div>
             <div className="infoBox">
-                <span className="title" > {name} </span>
-                <span className="year"> {firstRelease.human} </span>
-                <span className="company"> { company } </span>
-                <div className="platformInfo">
-                    <img className="platformLogo" alt="Platform Logo" src={ firstRelease?.platform?.platform_logo?.url?.replace('t_thumb','t_logo_med')?.replace('.jpg','.png') }></img>
-                    <span className="platformName"> { firstRelease?.platform?.name || "N/A" } </span>
-                </div>
+                <span className="infoTitle" > {name} </span>
+                <span className="infoPlatformName"> { release94?.platform?.name || "N/A" } </span>             
+                <br/>
+                <span className="infoReleaseDate"> {parseDate(release94.date)} {
+                    release94.date === firstRelease.date 
+                        && <span className="originalRel">( Original Release: {parseDate(firstRelease.date)})</span>
+                } </span>
             </div>
+            <button onClick={0} > Info </button>
         </>
 
     );
