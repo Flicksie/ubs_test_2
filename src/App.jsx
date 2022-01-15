@@ -1,19 +1,19 @@
-import './theme.css';
-import './App.css';
+import "./theme.css";
+import "./App.css";
 
-import GamesList from './components/gamesList/GamesList'
+import GamesList from "./components/gamesList/GamesList.jsx";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-     
-        <div>
-          <GamesList/>
-        </div>
+      <div className="App">
+          <header className="App-header">
 
-        </header>
-    </div>
+              <div>
+                  <GamesList/>
+              </div>
+
+          </header>
+      </div>
   );
 }
 
