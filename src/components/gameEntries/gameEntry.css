@@ -1,0 +1,21 @@
+.coverArt{
+    background-size: cover;
+    height:150px;
+    width:150px;
+}
+
+.infoBox{
+    margin: 12px;
+}
+
+.platformInfo{
+    display: flex;
+    align-items: center;
+}
+.platformName{
+    font-size: 12pt;
+}
+.platformLogo{
+    height: 32px;
+    margin: 12px;
+}
