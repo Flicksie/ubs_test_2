@@ -31,7 +31,7 @@ function GamesList (){
                     ?
                         games.map(game=> <li className="gamesListEntry" key={game.id}><GameEntry metadata={game} ></GameEntry></li> )
                     :
-                        [...Array(10).keys()].map(dummy=> <li className="gamesListEntry isDummy"><GameEntry metadata={({dummy:true})} ></GameEntry></li>)
+                        [...Array(10).keys()].map((v,i)=> <li key={i} className="gamesListEntry isDummy"><GameEntry metadata={({dummy:true})} ></GameEntry></li>)
                 }
             </ul>
         </div>
