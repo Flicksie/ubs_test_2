@@ -31,12 +31,13 @@ function GamesList({ modalRef }) {
   return (
       <div className="gamesListContainer">
           <h2>Games Released in 1994</h2>
-          <ul className="gamesList">
+          <ul className="gamesList flex dir-column">
               {
                     loaded
-                      ? games.map((game) => <li className="gamesListEntry" key={game.id}><GameEntry modalRef={modalRef} metadata={game} /></li>)
+                      // eslint-disable-next-line max-len
+                      ? games.map((game) => <li className="gamesListEntry rounded" key={game.id}><GameEntry modalRef={modalRef} metadata={game} /></li>)
                       : [...Array(10).keys()]
-                        .map((v, i) => <li key={i} className="gamesListEntry isDummy"><GameEntry metadata={({ dummy: true })} /></li>)
+                        .map((v, i) => <li key={i} className="gamesListEntry rounded isDummy"><GameEntry metadata={({ dummy: true })} /></li>)
                 }
           </ul>
       </div>

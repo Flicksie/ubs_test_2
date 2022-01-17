@@ -13,22 +13,21 @@
   }
   
   .modal-container{
-    background: var(--theme-bg-3);
     min-width: 300px;
     width: 50%;
 
-    border-radius: 6px;
-    padding: 0;
     position: relative;
     overflow: hidden;
     box-shadow: 0 0 50px -5px #112E;
     display: flex;
     flex-direction: column;
   }
+
   .modal-container > div{
     box-sizing: border-box;
     padding: 12px;
   }
+  
   .modal-header{
     width: 100%;
     top: 0;
@@ -47,7 +46,7 @@
     flex: 1 1 auto;
   }
   .modal-footer{
-    height: 64px;
+    max-height: 64px;
     align-items: center;
     display: flex;
     justify-content: right;

@@ -18,7 +18,7 @@ function Modal({ show, onClose, data }) {
 
   return (
       <div className="modal">
-          <div className="modal-container">
+          <div className="modal-container rounded bg-lighter">
               <div className="modal-header">
                   <h4> {data.title} </h4>
               </div>

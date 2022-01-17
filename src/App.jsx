@@ -14,7 +14,6 @@ function App() {
   return (
       <div className="App">
           <header className="App-header">
-              .
               <section className="body-container">
                   <GamesList modalRef={{ setModalData, modalData, setModalOpen }} />
               </section>
