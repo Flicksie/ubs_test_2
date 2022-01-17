@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import "./gameEntry.css";
 import "../buttons/buttons.css";
 
@@ -42,7 +43,7 @@ function gameEntry({ metadata, modalRef }) {
       errored = true;
     });
 
-  if (errored) return setModal("Error","Could not fetch list of titles.");
+  if (errored) return setModal("Error", "Could not fetch list of titles.");
 
   const parseDate = (date) => (date
     ? new Date(date * 1000).toLocaleString("en", { year: "numeric", month: "long", day: "numeric" })
@@ -75,12 +76,14 @@ function gameEntry({ metadata, modalRef }) {
                 }
 
             </div>);
-          }} className="info " > Info </button>
+          }} className="info "
+          > Info </button>
 
-          <button onClick={ async () => {
+          <button onClick={async () => {
             await loadGameData();
             setModal(name, <pre>{ JSON.stringify(gData, 0, 2) }</pre>);
-          }} className="secondary outline" > Data </button>
+          }} className="secondary outline"
+          > Data </button>
       </>
 
   );

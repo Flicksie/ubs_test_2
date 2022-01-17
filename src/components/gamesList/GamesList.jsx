@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
 import GameEntry from "./GameEntry.jsx";
 import "./gamesList.css";
@@ -25,7 +26,7 @@ function GamesList({ modalRef }) {
     // .finally(()=> );
   }, []);
 
-  if (errored) return setModal("Error","Could not fetch list of titles.");
+  if (errored) return setModal("Error", "Could not fetch list of titles.");
 
   return (
       <div className="gamesListContainer">

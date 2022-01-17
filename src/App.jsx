@@ -15,9 +15,9 @@ function App() {
       <div className="App">
           <header className="App-header">
               .
-          <section className="body-container">
-              <GamesList modalRef={{ setModalData, modalData, setModalOpen }} />
-          </section>
+              <section className="body-container">
+                  <GamesList modalRef={{ setModalData, modalData, setModalOpen }} />
+              </section>
           </header>
           <Modal data={modalData} show={modalOpen} onClose={() => setModalOpen(false)} />
       </div>
