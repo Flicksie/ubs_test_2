@@ -26,8 +26,8 @@ function Modal({ show, onClose, data }) {
                   {data.body}
               </div>
               <div className="modal-footer">
-                  <button onClick={onClose}>ok</button>
               </div>
+              <button className="modal-close" onClick={onClose}>✕</button>
           </div>
       </div>
   );
