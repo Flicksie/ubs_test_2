@@ -16,10 +16,10 @@ function App() {
           <header className="App-header">
               .
           <section className="body-container">
-              <Modal data={modalData} show={modalOpen} />
               <GamesList modalRef={{ setModalData, modalData, setModalOpen }} />
           </section>
           </header>
+          <Modal data={modalData} show={modalOpen} onClose={() => setModalOpen(false)} />
       </div>
   );
 }
