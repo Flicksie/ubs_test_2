@@ -1,9 +1,9 @@
 import "./gameEntry.css";
 import "../buttons/buttons.css";
 
-function gameEntry(props) {
+function gameEntry({ metadata, modalRef }) {
   // eslint-disable-next-line camelcase
-  const { dummy, name, cover, release_dates } = props.metadata || {};
+  const { dummy, name, cover, release_dates } = metadata || {};
 
   if (dummy) return (
       <>
@@ -22,6 +22,11 @@ function gameEntry(props) {
   const release94 = release_dates
     ?.sort((a, b) => a.date - b.date)
     ?.find((rel) => new Date(rel.date * 1000).getFullYear() === 1994);
+
+  const setModal = () => {
+    modalRef.setModalData({ title: name, body: <b>{name}</b> });
+    modalRef.setModalOpen(true);
+  };
 
   const parseDate = (date) => (date
     ? new Date(date * 1000).toLocaleString("en", { year: "numeric", month: "long", day: "numeric" })
@@ -42,8 +47,8 @@ function gameEntry(props) {
                         && <span className="originalRel">( Original Release: {parseDate(firstRelease.date)})</span>
                 } </span>
           </div>
-          <button className="info " > Info </button>
-          <button className="secondary outline" > Data </button>
+          <button onClick={setModal} className="info " > Info </button>
+          <button onClick={setModal} className="secondary outline" > Data </button>
       </>
 
   );

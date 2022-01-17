@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import GameEntry from "./GameEntry.jsx";
 import "./gamesList.css";
 
-function GamesList() {
+function GamesList({ modalRef }) {
   const [ games, setGames ] = useState([]);
   const [ loaded, setLoaded ] = useState(false);
 
@@ -26,7 +26,7 @@ function GamesList() {
           <ul className="gamesList">
               {
                     loaded
-                      ? games.map((game) => <li className="gamesListEntry" key={game.id}><GameEntry metadata={game} /></li>)
+                      ? games.map((game) => <li className="gamesListEntry" key={game.id}><GameEntry modalRef={modalRef} metadata={game} /></li>)
                       : [...Array(10).keys()]
                         .map((v, i) => <li key={i} className="gamesListEntry isDummy"><GameEntry metadata={({ dummy: true })} /></li>)
                 }
