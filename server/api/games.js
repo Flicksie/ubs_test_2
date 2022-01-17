@@ -49,9 +49,11 @@ router.get("/", (req, res) => {
       },
     },
   ).then((response) => {
-    res.json(response.data);
+    console.log("test 1");
+    res.status(200).json(response.data);
   })
-    .catch(() => {
+    .catch((e) => {
+      console.log(e.toJSON(), "test 2");
       res.status(500).json({ status: "ERROR", info: "Unable to fetch data." });
     });
 });
